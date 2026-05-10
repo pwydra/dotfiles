@@ -20,4 +20,15 @@ if [ ! -d "$PLUGIN_DIR/zsh-syntax-highlighting" ]; then
     git clone https://github.com/zsh-users/zsh-syntax-highlighting "$PLUGIN_DIR/zsh-syntax-highlighting"
 fi
 
+# Create the Neovim config directory if it doesn't exist
+mkdir -p "$HOME/.config/nvim"
+
+# Symlink the init.lua from your repo to the system config path
+ln -sf "$DOTFILES_DIR/nvim/init.lua" "$HOME/.config/nvim/init.lua"
+
+# Optional: Install ripgrep if on Ubuntu/Debian (needed for Telescope)
+if command -v apt &> /dev/null; then
+    sudo apt update && sudo apt install -y ripgrep
+fi
+
 echo "✅ Dotfiles linked and plugins installed!"
