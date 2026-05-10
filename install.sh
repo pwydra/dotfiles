@@ -31,4 +31,24 @@ if command -v apt &> /dev/null; then
     sudo apt update && sudo apt install -y ripgrep
 fi
 
+# Install Starship prompt if not already installed
+if ! command -v starship &> /dev/null; then
+    echo "Installing Starship prompt..."
+    if command -v apt &> /dev/null; then
+        # Ubuntu/Debian
+        curl -sS https://starship.rs/install.sh | sh -s -- --yes
+    elif command -v dnf &> /dev/null; then
+        # Fedora/RHEL
+        curl -sS https://starship.rs/install.sh | sh -s -- --yes
+    elif command -v brew &> /dev/null; then
+        # macOS with Homebrew
+        brew install starship
+    elif command -v pacman &> /dev/null; then
+        # Arch Linux
+        sudo pacman -S starship
+    else
+        echo "⚠️  Please install Starship manually from https://starship.rs/"
+    fi
+fi
+
 echo "✅ Dotfiles linked and plugins installed!"

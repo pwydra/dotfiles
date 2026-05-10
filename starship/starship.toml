@@ -10,7 +10,6 @@ $character
 [directory]
 style = "bold blue"
 truncation_length = 3
-fish_style_pwd = true
 
 [git_branch]
 symbol = " "
