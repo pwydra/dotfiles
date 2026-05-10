@@ -1,0 +1,29 @@
+# Get a nerd font at nerdfonts.com for symbols to work
+format = """
+$os\
+$directory\
+$git_branch\
+$git_status\
+$character
+"""
+
+[directory]
+style = "bold blue"
+truncation_length = 3
+
+[git_branch]
+symbol = " "
+style = "bold magenta"
+
+[git_status]
+style = "bold red"
+format = '([\[$all_status$ahead_behind\]]($style) )'
+
+[os]
+disabled = false
+style = "bold white"
+
+[os.symbols]
+Macos = " "
+RockyLinux = "󱄓 "
+Ubuntu = "󰕈 "
